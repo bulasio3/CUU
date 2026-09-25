@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUU System - Dashboard</title>
+    <script src="https://tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="min-h-screen flex flex-col">
+        <!-- Top Navbar -->
+        <header class="bg-indigo-900 text-white py-4 px-6 flex justify-between items-center shadow-md">
+            <h1 class="text-xl font-bold">CUU Student Records Management System</h1>
+            <div class="flex items-center gap-4">
+                <span id="user-display" class="font-medium bg-indigo-800 px-3 py-1 rounded">Loading User...</span>
+                <button id="logout-btn" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm font-bold transition">Logout</button>
+            </div>
+        </header>
+
+        <div class="flex flex-1">
+            <!-- Sidebar Navigation -->
+            <aside class="w-64 bg-white border-r border-gray-200 p-4 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Semester Roadmap</h2>
+                    <ul class="space-y-2 text-gray-600 font-medium text-sm">
+                        <li class="p-2 bg-indigo-50 text-indigo-700 rounded">📅 Academic Calendar</li>
+                        <li class="p-2 hover:bg-gray-100 rounded cursor-pointer">📚 Course Enrollment</li>
+                        <li class="p-2 hover:bg-gray-100 rounded cursor-pointer">🔄 Retake Applications</li>
+                    </ul>
+                </div>
+                <div class="text-xs text-gray-400 border-t pt-4">Cavendish University Uganda Prototype v1.0</div>
+            </aside>
+
+            <!-- Main Work Desk Workspace Area -->
+            <main class="flex-1 p-8">
+                <!-- Financial Gate Clearance Status Alert -->
+                <div id="financial-alert" class="hidden mb-6 p-4 rounded-lg flex items-center justify-between shadow-sm">
+                    <div>
+                        <h3 id="alert-title" class="font-bold text-lg"></h3>
+                        <p id="alert-desc" class="text-sm mt-1"></p>
+                    </div>
+                </div>
+
+                <!-- Main Data Metric Card Layout Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Current GPA (5.0 Scale)</h4>
+                        <div id="gpa-display" class="text-3xl font-black text-indigo-600">--</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Outstanding Fee Statement</h4>
+                        <div id="fees-display" class="text-3xl font-black text-gray-800">UGX --</div>
+                    </div>
+                </div>
+
+                <!-- Academic Evaluation History Ledger Grid -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-5 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+                        <h3 class="font-bold text-gray-700">Course Assessment Scores</h3>
+                        <span class="text-xs font-semibold uppercase bg-gray-200 text-gray-600 px-2 py-1 rounded">Official Transcript Copy</span>
+                    </div>
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100 text-gray-600 text-xs font-bold uppercase tracking-wider border-b">
+                                <th class="p-3">Course Code</th>
+                                <th class="p-3 text-center">Marks Obtain</th>
+                                <th class="p-3 text-center">Grade Letter</th>
+                            </tr>
+                        </thead>
+                        <tbody id="grades-table-rows" class="divide-y divide-gray-100 text-sm">
+                            <!-- Injected dynamically by app.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
