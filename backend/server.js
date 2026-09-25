@@ -7,6 +7,16 @@ require('dotenv').config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+const path = require('path');
+
+// 1. Tell Express where to find your frontend static files
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// 2. Redirect the root URL "/" to open your main login screen automatically
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
+
 
 const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || 'CUU_SUPER_SECRET_TOKEN_KEY_2026';
