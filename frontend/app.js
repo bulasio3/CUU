@@ -1,5 +1,6 @@
-// Change the very first line of frontend/app.js to this:
-const API_URL = 'https://onrender.com';
+// Change the very first line of frontend/app.js to a relative path:
+const API_URL = '/api';
+
 
 
 // Redirect helper if not logged in
