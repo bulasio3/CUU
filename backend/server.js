@@ -9,12 +9,14 @@ app.use(cors());
 app.use(express.json());
 const path = require('path');
 
-// 1. Tell Express where to find your frontend static files
-app.use(express.static(path.join(__dirname, '../frontend')));
 
-// 2. Redirect the root URL "/" to open your main login screen automatically
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+const path = require('path');
+
+// Explicitly join the directory structure to point up one level out of backend and into frontend
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
 });
 
 
