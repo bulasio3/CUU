@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:5000/api';
+// Change the very first line of frontend/app.js to this:
+const API_URL = 'https://onrender.com';
+
 
 // Redirect helper if not logged in
 function checkAuth() {
